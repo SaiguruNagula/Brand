@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { BrandMasalaLogo } from './BrandMasalaLogo';
 
 interface AboutProps {
   onOpenContact: () => void;
@@ -12,14 +13,19 @@ export const About: React.FC<AboutProps> = ({ onOpenContact }) => {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Left Column: Heading */}
+          {/* Left Column: Official Brand Masala Logo in Place of Text */}
           <div className="lg:col-span-5">
-            <span className="text-[12px] font-mono tracking-[0.2em] uppercase text-neutral-500 block mb-3">
+            <span className="text-[12px] font-mono tracking-[0.2em] uppercase text-neutral-500 block mb-4">
               ABOUT
             </span>
-            <h2 className="text-[34px] sm:text-[46px] lg:text-[52px] font-bold tracking-[-0.035em] text-[#111111] leading-tight">
-              WE'RE BRAND MASALA.
-            </h2>
+            <div className="inline-block" aria-label="Brand Masala — A Brand Consultancy Firm">
+              <BrandMasalaLogo 
+                variant="dark" 
+                size="lg" 
+                layout="stacked" 
+                showTagline={true} 
+              />
+            </div>
           </div>
 
           {/* Right Column: Concise, Confident Editorial Statement */}

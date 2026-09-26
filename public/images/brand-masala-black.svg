@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 240" width="100%" height="100%">
+  <style>
+    .brand-word { font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif; font-weight: 900; font-size: 96px; letter-spacing: -4px; fill: #000000; }
+    .masala-word { font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif; font-weight: 900; font-size: 96px; letter-spacing: -4px; fill: #FFB000; }
+    .dot-word { font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif; font-weight: 900; font-size: 96px; fill: #E83828; }
+    .tagline-word { font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 5px; text-transform: uppercase; fill: #1A1816; }
+  </style>
+  <text x="10" y="88" class="brand-word">brand</text>
+  <text x="10" y="172">
+    <tspan class="masala-word">masala</tspan><tspan class="dot-word">.</tspan>
+  </text>
+  <text x="12" y="214" class="tagline-word">A BRAND CONSULTANCY FIRM</text>
+</svg>

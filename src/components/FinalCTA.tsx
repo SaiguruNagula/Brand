@@ -2,6 +2,7 @@ import React from 'react';
 
 interface FinalCTAProps {
   onOpenContactModal: () => void;
+  prefilledService?: string;
 }
 
 export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenContactModal }) => {

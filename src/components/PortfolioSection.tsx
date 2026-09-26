@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { ALL_PORTFOLIO_PROJECTS, Project } from '../data/portfolioData';
 import { ArrowUpRight } from 'lucide-react';
+import { ClientBrandLockup } from './ClientBrandLockup';
 
 interface PortfolioSectionProps {
   onSelectProject: (project: Project) => void;
@@ -86,7 +87,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onSelectProj
               <div className="flex items-baseline justify-between pt-1">
                 <div>
                   <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1">
-                    <span>{project.client}</span>
+                    <ClientBrandLockup client={project.client} logoClassName="h-5 sm:h-6" />
                     <span>•</span>
                     <span>{project.category}</span>
                   </div>

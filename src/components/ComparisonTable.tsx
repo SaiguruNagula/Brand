@@ -1,5 +1,6 @@
 import React from 'react';
-import { Check, X, Sparkles, ArrowRight } from 'lucide-react';
+import { Check, X, ArrowRight } from 'lucide-react';
+import { BrandMasalaLogo } from './BrandMasalaLogo';
 
 interface ComparisonTableProps {
   onOpenConsultation: () => void;
@@ -81,10 +82,14 @@ export const ComparisonTable: React.FC<ComparisonTableProps> = ({ onOpenConsulta
                 <th className="p-6 text-xs font-mono uppercase tracking-widest text-neutral-600 font-bold w-1/4">
                   Feature / Capability
                 </th>
-                <th className="p-6 text-xs font-mono uppercase tracking-widest text-black bg-[#FFBB02] font-black w-1/4 shadow-sm">
-                  <div className="flex items-center gap-1.5">
-                    <Sparkles className="w-4 h-4 fill-black" />
-                    <span>Brand Masala</span>
+                <th className="p-5 sm:p-6 bg-[#FFBB02] w-1/4 shadow-sm border-x border-[#E5A800]">
+                  <div className="flex flex-col items-start gap-1">
+                    <BrandMasalaLogo 
+                      variant="on-gold" 
+                      size="sm" 
+                      layout="horizontal" 
+                      showTagline={true} 
+                    />
                   </div>
                 </th>
                 <th className="p-6 text-xs font-mono uppercase tracking-widest text-neutral-600 font-semibold w-1/6">

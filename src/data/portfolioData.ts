@@ -8,6 +8,9 @@ export interface Project {
   deliverables: string[];
   headline?: string;
   image: string;
+  gallery?: string[];
+  logo?: string;
+  location?: string;
   aspect?: string;
   featured?: boolean;
   accentColor?: string;
@@ -150,6 +153,24 @@ export const APPROACH_STEPS = [
 
 export const SELECTED_PROJECTS: Project[] = [
   {
+    id: "detailing-daddy-car-care",
+    title: "Mirror-Finish Graphene Armor & PPF Studio",
+    client: "DETAILING DADDY",
+    category: "Social Media",
+    year: "2026",
+    summary: "High-gloss automotive branding and performance social campaign showcasing 9H ceramic coating, self-healing paint protection film (PPF), and studio prep under hexagonal ceiling illumination for luxury SUVs.",
+    deliverables: ["High-Gloss Video Reels", "Brand Identity & Store Signage", "Location Campaign (Kompally)", "Performance Social Ads"],
+    headline: "Shield Your Shine — Mirror-Finish Ceramic & Graphene Armor",
+    image: "/images/clients/detailing-daddy-cover.svg",
+    gallery: [
+      "/images/clients/detailing-daddy-cover.svg"
+    ],
+    logo: "/images/clients/detailing-daddy-logo.svg",
+    location: "Kompally | 9989930929",
+    featured: true,
+    accentColor: "#FF6A00"
+  },
+  {
     id: "kulture-woodcraft",
     title: "Patterns with Purpose & Tactile Veneers",
     client: "KULTURE",
@@ -252,13 +273,20 @@ export const ALL_PORTFOLIO_PROJECTS: Project[] = [
   },
   {
     id: "p6",
-    title: "Detailing Daddy Precision Care",
+    title: "Detailing Daddy Precision Car Care & PPF Studio",
     client: "DETAILING DADDY",
     category: "Social Media",
     year: "2026",
-    summary: "Shield Your Shine campaign communicating UV ray protection, stone chip guard, and 7-year self-healing technology.",
-    deliverables: ["Performance Ads", "Location Targeting", "Visual Identity"],
-    image: "/images/social-turtlewax.jpg"
+    summary: "High-gloss automotive branding and performance social campaign showcasing 9H ceramic coating, self-healing paint protection film (PPF), and studio prep under hexagonal ceiling illumination for luxury SUVs.",
+    deliverables: ["High-Gloss Video Reels", "Brand Identity & Store Signage", "Location Campaign (Kompally)", "Performance Social Ads"],
+    headline: "Shield Your Shine — Mirror-Finish Ceramic & Graphene Armor",
+    image: "/images/clients/detailing-daddy-cover.svg",
+    gallery: [
+      "/images/clients/detailing-daddy-cover.svg"
+    ],
+    logo: "/images/clients/detailing-daddy-logo.svg",
+    location: "Kompally | 9989930929",
+    accentColor: "#FF6A00"
   },
   {
     id: "p7",

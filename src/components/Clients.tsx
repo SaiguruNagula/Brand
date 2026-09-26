@@ -1,4 +1,5 @@
 import React from 'react';
+import { ClientBrandLockup } from './ClientBrandLockup';
 
 interface ClientItem {
   name: string;
@@ -6,6 +7,7 @@ interface ClientItem {
 }
 
 const FEATURED_CLIENTS: ClientItem[] = [
+  { name: "DETAILING DADDY", category: "Car Protection Studio" },
   { name: "TATA MOTORS", category: "Automotive" },
   { name: "TURTLE WAX", category: "Surface Care" },
   { name: "SOHO JUBILEE HILLS", category: "Luxury Residences" },
@@ -16,8 +18,7 @@ const FEATURED_CLIENTS: ClientItem[] = [
   { name: "RAWPCHIC", category: "Bespoke Furniture" },
   { name: "ROCH", category: "Hospitality" },
   { name: "TRILIGHT", category: "Commercial Spaces" },
-  { name: "JAINS RADHAKRISHNA", category: "Real Estate" },
-  { name: "ALTOSSA", category: "Commercial Architecture" }
+  { name: "JAINS RADHAKRISHNA", category: "Real Estate" }
 ];
 
 export const Clients: React.FC = () => {
@@ -39,9 +40,13 @@ export const Clients: React.FC = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-12 sm:gap-x-16 gap-y-12 sm:gap-y-16 border-t border-neutral-300/70 pt-12">
           {FEATURED_CLIENTS.map((client) => (
             <div key={client.name} className="flex flex-col space-y-1">
-              <span className="text-[17px] sm:text-[19px] font-semibold tracking-tight text-[#111111]/90 hover:text-black transition-colors">
-                {client.name}
-              </span>
+              <div className="flex items-center min-h-[36px]">
+                <ClientBrandLockup 
+                  client={client.name} 
+                  logoClassName="h-7 sm:h-8"
+                  textClassName="text-[17px] sm:text-[19px] font-semibold tracking-tight text-[#111111]/90 hover:text-black transition-colors"
+                />
+              </div>
               <span className="text-[12px] font-mono tracking-wider text-neutral-400 uppercase">
                 {client.category}
               </span>

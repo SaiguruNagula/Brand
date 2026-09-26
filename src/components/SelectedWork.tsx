@@ -1,6 +1,8 @@
 import React from 'react';
 import { Project } from '../data/portfolioData';
 import { ArrowUpRight } from 'lucide-react';
+import { ClientBrandLockup } from './ClientBrandLockup';
+import { DetailingDaddyShowcase } from './DetailingDaddyShowcase';
 
 interface SelectedWorkProps {
   onSelectProject: (project: Project) => void;
@@ -11,10 +13,12 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
   onSelectProject,
   featuredProjects
 }) => {
-  const pKulture = featuredProjects[0]; // Kulture Woodcraft
-  const pSoho = featuredProjects[1]; // Soho Residences
-  const pTurtleWax = featuredProjects[2]; // Turtle Wax
-  const pTata = featuredProjects[3]; // Tata Motors
+  // Select projects dynamically
+  const pDetailingDaddy = featuredProjects.find((p) => p.client === 'DETAILING DADDY') || featuredProjects[0];
+  const pKulture = featuredProjects.find((p) => p.client === 'KULTURE');
+  const pSoho = featuredProjects.find((p) => p.client.includes('SOHO'));
+  const pTurtleWax = featuredProjects.find((p) => p.client === 'TURTLE WAX');
+  const pTata = featuredProjects.find((p) => p.client === 'TATA MOTORS');
 
   return (
     <section id="selected-work" className="bg-white text-[#111111] py-28 sm:py-36 lg:py-44">
@@ -35,50 +39,96 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
           </p>
         </div>
 
-        {/* Curated Exhibition Grid: 1 Large Feature + 2 Supporting Visuals + 1 Large Feature */}
+        {/* Curated Exhibition Grid */}
         <div className="space-y-20 sm:space-y-28 lg:space-y-36">
           
-          {/* Item 01: Large Feature — KULTURE WOODCRAFT */}
-          {pKulture && (
-            <div
-              onClick={() => onSelectProject(pKulture)}
-              className="group cursor-pointer flex flex-col space-y-6"
-            >
-              <div className="relative w-full aspect-[16/10] sm:aspect-[21/10] rounded-[16px] overflow-hidden bg-neutral-100">
-                <img
-                  src={pKulture.image}
-                  alt={pKulture.title}
-                  className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                />
-              </div>
+          {/* Item 01: Hero Lead Feature — DETAILING DADDY */}
+          {pDetailingDaddy && (
+            <div className="flex flex-col space-y-6">
+              <DetailingDaddyShowcase onOpenConsultation={() => onSelectProject(pDetailingDaddy)} />
 
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 pt-2">
-                <div className="space-y-1 max-w-2xl">
+                <div className="space-y-2 max-w-2xl">
+                  {/* Company Logo over Text with Name behind for SEO */}
                   <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-wider text-neutral-500">
-                    <span className="text-[#FC3520] font-semibold">{pKulture.client}</span>
+                    <ClientBrandLockup 
+                      client={pDetailingDaddy.client} 
+                      logoClassName="h-7 sm:h-8"
+                    />
                     <span>—</span>
-                    <span>{pKulture.category}</span>
+                    <span>{pDetailingDaddy.category}</span>
+                    {pDetailingDaddy.location && (
+                      <>
+                        <span className="hidden sm:inline">·</span>
+                        <span className="hidden sm:inline text-neutral-400 font-mono text-[11px]">{pDetailingDaddy.location}</span>
+                      </>
+                    )}
                   </div>
-                  <h3 className="text-[22px] sm:text-[28px] font-semibold tracking-tight text-[#111111] group-hover:text-neutral-600 transition-colors">
-                    {pKulture.title}
+
+                  <h3 
+                    onClick={() => onSelectProject(pDetailingDaddy)}
+                    className="text-[24px] sm:text-[30px] font-semibold tracking-tight text-[#111111] hover:text-neutral-600 transition-colors cursor-pointer"
+                  >
+                    {pDetailingDaddy.title}
                   </h3>
-                  <p className="text-[15px] text-neutral-500 leading-relaxed pt-1">
-                    {pKulture.summary}
+                  
+                  {pDetailingDaddy.headline && (
+                    <p className="text-[15px] font-medium text-[#FF6A00]">
+                      "{pDetailingDaddy.headline}"
+                    </p>
+                  )}
+
+                  <p className="text-[15px] text-neutral-500 leading-relaxed pt-0.5">
+                    {pDetailingDaddy.summary}
                   </p>
                 </div>
 
-                <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-neutral-500 group-hover:text-[#111111] transition-colors shrink-0">
-                  <span>View Project</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </div>
+                <button
+                  type="button"
+                  onClick={() => onSelectProject(pDetailingDaddy)}
+                  className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-neutral-500 hover:text-[#111111] transition-colors shrink-0 cursor-pointer"
+                >
+                  <span>View Project Specs</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 hover:translate-x-0.5 hover:-translate-y-0.5" />
+                </button>
               </div>
             </div>
           )}
 
-          {/* Items 02 & 03: Two Supporting Visuals — SOHO & TURTLE WAX */}
+          {/* Items 02 & 03: Supporting Visuals — KULTURE & SOHO */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-16 lg:gap-20">
             
-            {/* Supporting Visual 1: SOHO */}
+            {/* Supporting Visual 1: KULTURE */}
+            {pKulture && (
+              <div
+                onClick={() => onSelectProject(pKulture)}
+                className="group cursor-pointer flex flex-col space-y-5"
+              >
+                <div className="relative w-full aspect-[4/3] rounded-[14px] overflow-hidden bg-neutral-100">
+                  <img
+                    src={pKulture.image}
+                    alt={pKulture.title}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  />
+                </div>
+
+                <div className="space-y-1.5 pt-1">
+                  <div className="flex items-center gap-2.5 text-xs font-mono uppercase tracking-wider text-neutral-500">
+                    <ClientBrandLockup client={pKulture.client} />
+                    <span>—</span>
+                    <span>{pKulture.category}</span>
+                  </div>
+                  <h4 className="text-[20px] sm:text-[24px] font-semibold tracking-tight text-[#111111] group-hover:text-neutral-600 transition-colors">
+                    {pKulture.title}
+                  </h4>
+                  <p className="text-[14px] text-neutral-500 leading-relaxed">
+                    {pKulture.summary}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Supporting Visual 2: SOHO */}
             {pSoho && (
               <div
                 onClick={() => onSelectProject(pSoho)}
@@ -94,7 +144,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
 
                 <div className="space-y-1.5 pt-1">
                   <div className="flex items-center gap-2.5 text-xs font-mono uppercase tracking-wider text-neutral-500">
-                    <span className="text-[#FFBB02] font-semibold">{pSoho.client}</span>
+                    <ClientBrandLockup client={pSoho.client} />
                     <span>—</span>
                     <span>{pSoho.category}</span>
                   </div>
@@ -107,39 +157,9 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
                 </div>
               </div>
             )}
-
-            {/* Supporting Visual 2: TURTLE WAX */}
-            {pTurtleWax && (
-              <div
-                onClick={() => onSelectProject(pTurtleWax)}
-                className="group cursor-pointer flex flex-col space-y-5"
-              >
-                <div className="relative w-full aspect-[4/3] rounded-[14px] overflow-hidden bg-neutral-100">
-                  <img
-                    src={pTurtleWax.image}
-                    alt={pTurtleWax.title}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                  />
-                </div>
-
-                <div className="space-y-1.5 pt-1">
-                  <div className="flex items-center gap-2.5 text-xs font-mono uppercase tracking-wider text-neutral-500">
-                    <span className="text-[#FFBB02] font-semibold">{pTurtleWax.client}</span>
-                    <span>—</span>
-                    <span>{pTurtleWax.category}</span>
-                  </div>
-                  <h4 className="text-[20px] sm:text-[24px] font-semibold tracking-tight text-[#111111] group-hover:text-neutral-600 transition-colors">
-                    {pTurtleWax.title}
-                  </h4>
-                  <p className="text-[14px] text-neutral-500 leading-relaxed">
-                    {pTurtleWax.summary}
-                  </p>
-                </div>
-              </div>
-            )}
           </div>
 
-          {/* Item 04: Large Feature — TATA MOTORS */}
+          {/* Item 04: Supporting Visual — TATA MOTORS */}
           {pTata && (
             <div
               onClick={() => onSelectProject(pTata)}
@@ -156,7 +176,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 pt-2">
                 <div className="space-y-1 max-w-2xl">
                   <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-wider text-neutral-500">
-                    <span className="text-[#FC3520] font-semibold">{pTata.client}</span>
+                    <ClientBrandLockup client={pTata.client} />
                     <span>—</span>
                     <span>{pTata.category}</span>
                   </div>
