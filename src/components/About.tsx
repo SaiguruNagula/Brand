@@ -31,11 +31,11 @@ export const About: React.FC<AboutProps> = ({ onOpenContact }) => {
           {/* Right Column: Concise, Confident Editorial Statement */}
           <div className="lg:col-span-7 space-y-8">
             <p className="text-[20px] sm:text-[24px] lg:text-[26px] font-normal tracking-tight text-[#111111] leading-[1.4]">
-              We create bold, strategic and result-oriented marketing solutions that help businesses stand out in a competitive world.
+              Brand Masala is a dynamic marketing agency built on the belief that every brand deserves a unique story and a powerful presence.
             </p>
 
             <p className="text-[16px] sm:text-[17px] text-neutral-500 font-normal leading-[1.7] max-w-2xl">
-              From social media and content to branding and digital experiences, we bring strategy and creative execution together under one roof.
+              We specialize in bold, strategic and result-oriented marketing solutions intended to help businesses stand out in a competitive market.
             </p>
 
             <div className="pt-4">
@@ -43,7 +43,7 @@ export const About: React.FC<AboutProps> = ({ onOpenContact }) => {
                 onClick={onOpenContact}
                 className="group inline-flex items-center gap-2 text-[14px] font-medium tracking-tight text-[#111111] hover:text-neutral-600 transition-colors cursor-pointer"
               >
-                <span>Learn how we collaborate</span>
+                <span>Let's talk</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </button>
             </div>

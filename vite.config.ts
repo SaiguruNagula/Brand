@@ -1,14 +1,31 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import fs from 'node:fs';
+import {fileURLToPath} from 'node:url';
 import {defineConfig} from 'vite';
+
+const root = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [react(), tailwindcss(), {
+      name: 'approved-v1-public-assets',
+      apply: 'build',
+      generateBundle() {
+        // Keep reusable prototype assets in source control, but never ship them.
+        const manifest = JSON.parse(fs.readFileSync(path.join(root, 'scripts/v1-assets-manifest.json'), 'utf8')) as {output: string}[];
+        for (const file of [...manifest.map(asset => asset.output), 'public/fonts/GeistPixel-Circle.woff2']) {
+          const resolved = path.resolve(root, file);
+          if (!resolved.startsWith(path.join(root, 'public') + path.sep)) throw new Error('Invalid public asset path');
+          this.emitFile({type: 'asset', fileName: file.replace(/^public\//, ''), source: fs.readFileSync(resolved)});
+        }
+      },
+    }],
+    build: {copyPublicDir: false},
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': root,
       },
     },
     server: {
