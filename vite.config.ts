@@ -13,9 +13,18 @@ export default defineConfig(() => {
       name: 'approved-v1-public-assets',
       apply: 'build',
       generateBundle() {
-        // Keep reusable prototype assets in source control, but never ship them.
+        // Emit only files referenced by the current UI; avoid copying the entire public directory.
         const manifest = JSON.parse(fs.readFileSync(path.join(root, 'scripts/v1-assets-manifest.json'), 'utf8')) as {output: string}[];
-        for (const file of [...manifest.map(asset => asset.output), 'public/fonts/GeistPixel-Circle.woff2']) {
+        const referencedPublicAssets = [
+          'public/fonts/GeistPixel-Circle.woff2',
+          'public/assets/logo.webp',
+          'public/images/social-kulture.jpg',
+          'public/images/social-soho.jpg',
+          'public/images/social-turtlewax.jpg',
+          'public/images/social-tatamotors.jpg',
+          'public/images/web-soho-residences.jpg',
+        ];
+        for (const file of [...manifest.map(asset => asset.output), ...referencedPublicAssets]) {
           const resolved = path.resolve(root, file);
           if (!resolved.startsWith(path.join(root, 'public') + path.sep)) throw new Error('Invalid public asset path');
           this.emitFile({type: 'asset', fileName: file.replace(/^public\//, ''), source: fs.readFileSync(resolved)});

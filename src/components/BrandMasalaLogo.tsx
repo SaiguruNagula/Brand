@@ -31,7 +31,7 @@ export const BrandMasalaLogo: React.FC<BrandMasalaLogoProps> = ({
   const taglineColor = isDarkText ? 'text-[#1A1816]' : 'text-neutral-400';
 
   if (useImage) {
-    const src = isDarkText ? '/images/logo-black.svg' : '/images/brand-masala-logo.svg';
+    const src = '/images/brand/brand-masala-logo.webp';
     const heightMap = {
       xs: 'h-6',
       sm: 'h-8',

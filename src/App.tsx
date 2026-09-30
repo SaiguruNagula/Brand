@@ -13,6 +13,7 @@ import { HowItWorks } from './components/HowItWorks';
 import { CreativeCalculator } from './components/CreativeCalculator';
 import { ComparisonTable } from './components/ComparisonTable';
 import { SelectedWork } from './components/SelectedWork';
+import { AnimatedLightBackground } from './components/AnimatedLightBackground';
 import { PortfolioSection } from './components/PortfolioSection';
 import { About } from './components/About';
 import { Clients } from './components/Clients';
@@ -69,7 +70,7 @@ export default function App() {
         <LogoMarquee />
 
         {/* 04 — INTERACTIVE SERVICES EXPLORER (DESIGN PICKLE TABBED CAPABILITIES) */}
-        <ServiceExplorer onOpenConsultation={(cap) => handleOpenContact(cap)} />
+        <ServiceExplorer onOpenConsultation={(cap: string | undefined) => handleOpenContact(cap)} />
 
         {/* 05 — HOW IT WORKS & INTERACTIVE REQUEST BRIEF SANDBOX */}
         <HowItWorks onOpenConsultation={() => handleOpenContact('Creative Workflow Demo')} />
@@ -80,19 +81,24 @@ export default function App() {
         {/* 07 — COMPARISON MATRIX (WHY BRAND MASALA VS AGENCIES & FREELANCERS) */}
         <ComparisonTable onOpenConsultation={() => handleOpenContact()} />
 
-        {/* 08 — SELECTED WORK SHOWCASE */}
-        <SelectedWork
-          featuredProjects={SELECTED_PROJECTS}
-          onSelectProject={(project) => setSelectedProject(project)}
-        />
+        <div className="relative isolate bg-[#EFEFEF]">
+          <AnimatedLightBackground />
+          <div className="relative z-10">
+            {/* 08 — SELECTED WORK SHOWCASE */}
+            <SelectedWork
+              featuredProjects={SELECTED_PROJECTS}
+              onSelectProject={(project: Project) => setSelectedProject(project)}
+            />
 
-        {/* 09 — PORTFOLIO WORK GALLERY WITH FILTER TABS */}
-        <PortfolioSection
-          onSelectProject={(project) => setSelectedProject(project)}
-        />
+            {/* 09 — PORTFOLIO WORK GALLERY WITH FILTER TABS */}
+            <PortfolioSection
+              onSelectProject={(project: Project) => setSelectedProject(project)}
+            />
 
-        {/* 10 — ABOUT & FOUNDER SPOTLIGHT */}
-        <About onOpenContact={() => handleOpenContact()} />
+            {/* 10 — ABOUT & FOUNDER SPOTLIGHT */}
+            <About onOpenContact={() => handleOpenContact()} />
+          </div>
+        </div>
 
         {/* 11 — CLIENT COLLABORATION ARCHIVE */}
         <Clients />

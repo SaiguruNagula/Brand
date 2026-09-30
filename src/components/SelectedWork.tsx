@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Project } from '../data/portfolioData';
 import { ArrowUpRight } from 'lucide-react';
 import { ClientBrandLockup } from './ClientBrandLockup';
@@ -13,6 +13,27 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
   onSelectProject,
   featuredProjects
 }) => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const targets = sectionRef.current.querySelectorAll<HTMLElement>('[data-work-reveal]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('work-revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -10% 0px' });
+
+    targets.forEach((target) => {
+      if (target.getBoundingClientRect().top < window.innerHeight) return;
+      observer.observe(target);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   // Select projects dynamically
   const pDetailingDaddy = featuredProjects.find((p) => p.client === 'DETAILING DADDY') || featuredProjects[0];
   const pKulture = featuredProjects.find((p) => p.client === 'KULTURE');
@@ -21,20 +42,20 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
   const pTata = featuredProjects.find((p) => p.client === 'TATA MOTORS');
 
   return (
-    <section id="selected-work" className="bg-white text-[#111111] py-28 sm:py-36 lg:py-44">
-      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
+    <section ref={sectionRef} id="selected-work" className="bg-transparent text-[#111111] py-28 sm:py-36 lg:py-44 2xl:py-48">
+      <div className="max-w-[1680px] mx-auto px-6 sm:px-10 lg:px-16">
         
         {/* Editorial Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-24 gap-6 border-b border-neutral-200/80 pb-10">
           <div>
-            <span className="text-[12px] font-mono tracking-[0.2em] uppercase text-neutral-500 block mb-3">
+            <span data-work-reveal className="text-[12px] font-mono tracking-[0.2em] uppercase text-neutral-500 block mb-3">
               Selected Work
             </span>
-            <h2 className="text-[36px] sm:text-[46px] lg:text-[54px] font-bold tracking-[-0.035em] text-[#111111] leading-tight">
+            <h2 data-work-reveal style={{ animationDelay: '80ms' }} className="text-[36px] sm:text-[46px] lg:text-[60px] 2xl:text-[72px] font-bold tracking-[-0.035em] text-[#111111] leading-tight">
               Ideas made visible.
             </h2>
           </div>
-          <p className="text-[15px] sm:text-[16px] text-neutral-500 max-w-sm font-normal leading-relaxed">
+          <p data-work-reveal style={{ animationDelay: '160ms' }} className="text-[15px] sm:text-[16px] lg:text-[18px] text-neutral-500 max-w-sm font-normal leading-relaxed">
             Curated brand systems, campaign storytelling, and digital interfaces crafted for lasting distinction.
           </p>
         </div>
@@ -44,7 +65,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
           
           {/* Item 01: Hero Lead Feature — DETAILING DADDY */}
           {pDetailingDaddy && (
-            <div className="flex flex-col space-y-6">
+            <div data-work-reveal className="flex flex-col space-y-6">
               <DetailingDaddyShowcase onOpenConsultation={() => onSelectProject(pDetailingDaddy)} />
 
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 pt-2">
@@ -67,18 +88,18 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
 
                   <h3 
                     onClick={() => onSelectProject(pDetailingDaddy)}
-                    className="text-[24px] sm:text-[30px] font-semibold tracking-tight text-[#111111] hover:text-neutral-600 transition-colors cursor-pointer"
+                    className="text-[24px] sm:text-[30px] lg:text-[34px] font-semibold tracking-tight text-[#111111] hover:text-neutral-600 transition-colors cursor-pointer"
                   >
                     {pDetailingDaddy.title}
                   </h3>
                   
                   {pDetailingDaddy.headline && (
-                    <p className="text-[15px] font-medium text-[#FF6A00]">
+                    <p className="text-[15px] lg:text-[16px] font-medium text-[#FF6A00]">
                       "{pDetailingDaddy.headline}"
                     </p>
                   )}
 
-                  <p className="text-[15px] text-neutral-500 leading-relaxed pt-0.5">
+                  <p className="text-[15px] lg:text-[17px] text-neutral-500 leading-relaxed pt-0.5">
                     {pDetailingDaddy.summary}
                   </p>
                 </div>
@@ -102,13 +123,13 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
             {pKulture && (
               <div
                 onClick={() => onSelectProject(pKulture)}
-                className="group cursor-pointer flex flex-col space-y-5"
+                data-work-reveal className="group cursor-pointer flex flex-col space-y-5"
               >
                 <div className="relative w-full aspect-[4/3] rounded-[14px] overflow-hidden bg-neutral-100">
                   <img
                     src={pKulture.image}
                     alt={pKulture.title}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                    className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                   />
                 </div>
 
@@ -118,10 +139,10 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
                     <span>—</span>
                     <span>{pKulture.category}</span>
                   </div>
-                  <h4 className="text-[20px] sm:text-[24px] font-semibold tracking-tight text-[#111111] group-hover:text-neutral-600 transition-colors">
+                  <h4 className="text-[20px] sm:text-[24px] lg:text-[27px] font-semibold tracking-tight text-[#111111] group-hover:text-neutral-600 transition-colors">
                     {pKulture.title}
                   </h4>
-                  <p className="text-[14px] text-neutral-500 leading-relaxed">
+                  <p className="text-[14px] lg:text-[16px] text-neutral-500 leading-relaxed">
                     {pKulture.summary}
                   </p>
                 </div>
@@ -132,13 +153,13 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
             {pSoho && (
               <div
                 onClick={() => onSelectProject(pSoho)}
-                className="group cursor-pointer flex flex-col space-y-5"
+                data-work-reveal style={{ animationDelay: '100ms' }} className="group cursor-pointer flex flex-col space-y-5"
               >
                 <div className="relative w-full aspect-[4/3] rounded-[14px] overflow-hidden bg-neutral-100">
                   <img
                     src={pSoho.image}
                     alt={pSoho.title}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                    className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                   />
                 </div>
 
@@ -148,10 +169,10 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
                     <span>—</span>
                     <span>{pSoho.category}</span>
                   </div>
-                  <h4 className="text-[20px] sm:text-[24px] font-semibold tracking-tight text-[#111111] group-hover:text-neutral-600 transition-colors">
+                  <h4 className="text-[20px] sm:text-[24px] lg:text-[27px] font-semibold tracking-tight text-[#111111] group-hover:text-neutral-600 transition-colors">
                     {pSoho.title}
                   </h4>
-                  <p className="text-[14px] text-neutral-500 leading-relaxed">
+                  <p className="text-[14px] lg:text-[16px] text-neutral-500 leading-relaxed">
                     {pSoho.summary}
                   </p>
                 </div>
@@ -163,13 +184,13 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
           {pTata && (
             <div
               onClick={() => onSelectProject(pTata)}
-              className="group cursor-pointer flex flex-col space-y-6"
+              data-work-reveal className="group cursor-pointer flex flex-col space-y-6"
             >
               <div className="relative w-full aspect-[16/10] sm:aspect-[21/10] rounded-[16px] overflow-hidden bg-neutral-100">
                 <img
                   src={pTata.image}
                   alt={pTata.title}
-                  className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  className="w-full h-full object-contain object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                 />
               </div>
 
@@ -180,10 +201,10 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({
                     <span>—</span>
                     <span>{pTata.category}</span>
                   </div>
-                  <h3 className="text-[22px] sm:text-[28px] font-semibold tracking-tight text-[#111111] group-hover:text-neutral-600 transition-colors">
+                  <h3 className="text-[22px] sm:text-[28px] lg:text-[32px] font-semibold tracking-tight text-[#111111] group-hover:text-neutral-600 transition-colors">
                     {pTata.title}
                   </h3>
-                  <p className="text-[15px] text-neutral-500 leading-relaxed pt-1">
+                  <p className="text-[15px] lg:text-[17px] text-neutral-500 leading-relaxed pt-1">
                     {pTata.summary}
                   </p>
                 </div>

@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
           {/* Socials */}
           <div className="flex items-center gap-6 text-[14px] text-neutral-400">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/brand_masala/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"

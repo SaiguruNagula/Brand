@@ -23,15 +23,15 @@ const FEATURED_CLIENTS: ClientItem[] = [
 
 export const Clients: React.FC = () => {
   return (
-    <section id="clients" className="bg-[#F7F7F5] text-[#111111] py-28 sm:py-36 lg:py-44">
-      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
+    <section id="clients" className="relative z-10 bg-[#F7F7F5] text-[#111111] py-28 sm:py-36 lg:py-44 2xl:py-52">
+      <div className="max-w-[1680px] mx-auto px-6 sm:px-10 lg:px-16">
         
         {/* Section Header */}
-        <div className="mb-20 sm:mb-28 max-w-2xl">
+        <div className="mb-20 sm:mb-28 max-w-2xl 2xl:max-w-4xl">
           <span className="text-[12px] font-mono tracking-[0.2em] uppercase text-neutral-500 block mb-3">
             COLLABORATIONS
           </span>
-          <h2 className="text-[34px] sm:text-[46px] lg:text-[52px] font-bold tracking-[-0.035em] text-[#111111] leading-tight">
+          <h2 className="text-[34px] sm:text-[46px] lg:text-[58px] 2xl:text-[70px] font-bold tracking-[-0.035em] text-[#111111] leading-tight">
             BRANDS WE'VE WORKED WITH
           </h2>
         </div>
@@ -40,14 +40,14 @@ export const Clients: React.FC = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-12 sm:gap-x-16 gap-y-12 sm:gap-y-16 border-t border-neutral-300/70 pt-12">
           {FEATURED_CLIENTS.map((client) => (
             <div key={client.name} className="flex flex-col space-y-1">
-              <div className="flex items-center min-h-[36px]">
+              <div className="flex items-center min-h-[36px] lg:min-h-[40px]">
                 <ClientBrandLockup 
                   client={client.name} 
-                  logoClassName="h-7 sm:h-8"
-                  textClassName="text-[17px] sm:text-[19px] font-semibold tracking-tight text-[#111111]/90 hover:text-black transition-colors"
+                  logoClassName="h-7 sm:h-8 lg:h-10"
+                  textClassName="text-[17px] sm:text-[19px] lg:text-[21px] font-semibold tracking-tight text-[#111111]/90 hover:text-black transition-colors"
                 />
               </div>
-              <span className="text-[12px] font-mono tracking-wider text-neutral-400 uppercase">
+              <span className="text-[12px] lg:text-[13px] font-mono tracking-wider text-neutral-400 uppercase">
                 {client.category}
               </span>
             </div>

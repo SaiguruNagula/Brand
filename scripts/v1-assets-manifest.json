@@ -94,6 +94,13 @@
     "bytes": 180164
   },
   {
+    "source": "04_HOMEPAGE_MEDIA/hero4.png",
+    "output": "public/images/homepage/hero4.webp",
+    "width": 1080,
+    "height": 1350,
+    "bytes": 180164
+  },
+  {
     "source": "04_HOMEPAGE_MEDIA/hero2.jpg",
     "output": "public/images/work/soho-brochure.webp",
     "width": 1080,

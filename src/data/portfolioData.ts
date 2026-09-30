@@ -161,11 +161,11 @@ export const SELECTED_PROJECTS: Project[] = [
     summary: "High-gloss automotive branding and performance social campaign showcasing 9H ceramic coating, self-healing paint protection film (PPF), and studio prep under hexagonal ceiling illumination for luxury SUVs.",
     deliverables: ["High-Gloss Video Reels", "Brand Identity & Store Signage", "Location Campaign (Kompally)", "Performance Social Ads"],
     headline: "Shield Your Shine — Mirror-Finish Ceramic & Graphene Armor",
-    image: "/images/clients/detailing-daddy-cover.svg",
+    image: "/images/work/detailing-daddy-social.webp",
     gallery: [
-      "/images/clients/detailing-daddy-cover.svg"
+      "/images/work/detailing-daddy-social.webp"
     ],
-    logo: "/images/clients/detailing-daddy-logo.svg",
+    logo: "/images/clients/detailing-daddy.webp",
     location: "Kompally | 9989930929",
     featured: true,
     accentColor: "#FF6A00"
@@ -179,7 +179,7 @@ export const SELECTED_PROJECTS: Project[] = [
     summary: "Elevated architectural wooden veneer campaign showcasing tactile textures, sustainable beauty, and timeless craft for luxury interior spaces.",
     deliverables: ["Social Media Campaigns", "Art Direction", "Product Photography"],
     headline: "Textures that tempt. Scratches don't stand a chance.",
-    image: "/images/social-kulture.jpg",
+    image: "/images/work/kulture-social.webp",
     featured: true
   },
   {
@@ -191,7 +191,7 @@ export const SELECTED_PROJECTS: Project[] = [
     summary: "Digital experience and brand communication for prime luxury residential towers at Jubilee Hills, weaving nature, architecture, and tranquil perspectives.",
     deliverables: ["Digital Architecture", "Web Development", "Editorial Brochure"],
     headline: "Some homes give you an address. SOHO gives you a perspective.",
-    image: "/images/social-soho.jpg",
+    image: "/images/work/soho-residences-website.webp",
     featured: true
   },
   {
@@ -203,7 +203,7 @@ export const SELECTED_PROJECTS: Project[] = [
     summary: "High-voltage performance social campaign highlighting advanced surface protection, PPF durability, and showroom finish for automobile connoisseurs.",
     deliverables: ["Social Media Ads", "Visual Collateral", "Campaign Creative"],
     headline: "Invisible Protection. Visible Perfection.",
-    image: "/images/social-turtlewax.jpg",
+    image: "/images/work/turtlewax-social.webp",
     featured: false
   },
   {
@@ -215,7 +215,7 @@ export const SELECTED_PROJECTS: Project[] = [
     summary: "National automotive social media campaign highlighting contemporary pride, energetic design language, and everyday family aspiration.",
     deliverables: ["Social Media Creatives", "Campaign Slogans", "Creative Production"],
     headline: "Feel Special. My pride on wheels.",
-    image: "/images/social-tatamotors.jpg",
+    image: "/images/work/tata-motors-social.webp",
     featured: false
   }
 ];
@@ -229,7 +229,7 @@ export const ALL_PORTFOLIO_PROJECTS: Project[] = [
     year: "2026",
     summary: "Architectural woodcraft campaign celebrating natural grains, rhythmic geometric chevrons, and scratch-resistant durability.",
     deliverables: ["Social Media Strategy", "Digital Graphics", "Editorial Stills"],
-    image: "/images/social-kulture.jpg"
+    image: "/images/work/kulture-social.webp"
   },
   {
     id: "p2",
@@ -239,7 +239,7 @@ export const ALL_PORTFOLIO_PROJECTS: Project[] = [
     year: "2026",
     summary: "Curated social narrative uniting serenity and metropolitan luxury high-rise living with elevated panoramic views.",
     deliverables: ["Feed Curation", "Story Collateral", "Social Advertising"],
-    image: "/images/social-soho.jpg"
+    image: "/images/work/soho-social.webp"
   },
   {
     id: "p3",
@@ -249,7 +249,7 @@ export const ALL_PORTFOLIO_PROJECTS: Project[] = [
     year: "2026",
     summary: "Creative social ads designed for automotive enthusiasts featuring PPF protection and interior restoration solutions.",
     deliverables: ["Campaign Creatives", "Paid Ads", "Ad Copy"],
-    image: "/images/social-turtlewax.jpg"
+    image: "/images/work/turtlewax-social.webp"
   },
   {
     id: "p4",
@@ -259,7 +259,7 @@ export const ALL_PORTFOLIO_PROJECTS: Project[] = [
     year: "2026",
     summary: "Connected aspirations campaign articulating modern safety, bold road presence, and emotional pride.",
     deliverables: ["Social Ad Visuals", "Copy Direction", "Digital Assets"],
-    image: "/images/social-tatamotors.jpg"
+    image: "/images/work/tata-motors-social.webp"
   },
   {
     id: "p5",
@@ -269,7 +269,7 @@ export const ALL_PORTFOLIO_PROJECTS: Project[] = [
     year: "2026",
     summary: "Timeless craftsmanship and intentional organic silhouettes captured in warm editorial light for bespoke furniture collectors.",
     deliverables: ["Product Stills", "Social Lookbooks", "Creative Direction"],
-    image: "/images/social-kulture.jpg"
+    image: "/images/work/rawpchic-social.webp"
   },
   {
     id: "p6",
@@ -280,11 +280,11 @@ export const ALL_PORTFOLIO_PROJECTS: Project[] = [
     summary: "High-gloss automotive branding and performance social campaign showcasing 9H ceramic coating, self-healing paint protection film (PPF), and studio prep under hexagonal ceiling illumination for luxury SUVs.",
     deliverables: ["High-Gloss Video Reels", "Brand Identity & Store Signage", "Location Campaign (Kompally)", "Performance Social Ads"],
     headline: "Shield Your Shine — Mirror-Finish Ceramic & Graphene Armor",
-    image: "/images/clients/detailing-daddy-cover.svg",
+    image: "/images/work/detailing-daddy-social.webp",
     gallery: [
-      "/images/clients/detailing-daddy-cover.svg"
+      "/images/work/detailing-daddy-social.webp"
     ],
-    logo: "/images/clients/detailing-daddy-logo.svg",
+    logo: "/images/clients/detailing-daddy.webp",
     location: "Kompally | 9989930929",
     accentColor: "#FF6A00"
   },
@@ -296,7 +296,7 @@ export const ALL_PORTFOLIO_PROJECTS: Project[] = [
     year: "2026",
     summary: "High-touch business cards in deep lapis blue foil with tactile veneer magazine cover features and dealer lookbooks.",
     deliverables: ["Business Card System", "Magazine Editorial", "Print Production"],
-    image: "/images/social-kulture.jpg"
+    image: "/images/work/kulture-print.webp"
   },
   {
     id: "p8",
@@ -306,7 +306,7 @@ export const ALL_PORTFOLIO_PROJECTS: Project[] = [
     year: "2026",
     summary: "Bound architectural hardbound brochure featuring gold-embossed S monogram, aerial landscaping plates, and 53,000 sq ft clubhouse blueprints.",
     deliverables: ["Editorial Brochure", "Embossed Foil Covers", "Architectural Layouts"],
-    image: "/images/web-soho-residences.jpg"
+    image: "/images/work/soho-brochure.webp"
   },
   {
     id: "p9",
@@ -316,7 +316,7 @@ export const ALL_PORTFOLIO_PROJECTS: Project[] = [
     year: "2026",
     summary: "Full-page broadsheet newspaper advertisement for 40-floor landmark tower at L.B. Nagar with zero pre-EMI callouts.",
     deliverables: ["Hindustan Times Front Page Ad", "Broadsheet Layout", "Offer Hierarchy"],
-    image: "/images/social-soho.jpg"
+    image: "/images/work/jains-newspaper-ad.webp"
   },
   {
     id: "p10",
@@ -336,7 +336,7 @@ export const ALL_PORTFOLIO_PROJECTS: Project[] = [
     year: "2026",
     summary: "High-performance digital web experience conveying 25+ years of construction legacy, architectural drafting, and project portfolios.",
     deliverables: ["Bespoke Web Design", "Interactive Portfolio", "Architectural UI"],
-    image: "/images/web-svc-realty.jpg"
+    image: "/images/work/svc-realty-website.webp"
   },
   {
     id: "p12",
@@ -346,7 +346,7 @@ export const ALL_PORTFOLIO_PROJECTS: Project[] = [
     year: "2026",
     summary: "Minimalist web destination built for discerning buyers exploring 4,500 to 6,415 sq ft luxury apartments with smooth spatial walkthroughs.",
     deliverables: ["Interactive Floorplans", "Responsive Web App", "Inquiry Conversion"],
-    image: "/images/web-soho-residences.jpg"
+    image: "/images/work/soho-residences-website.webp"
   },
   {
     id: "p13",
@@ -356,7 +356,7 @@ export const ALL_PORTFOLIO_PROJECTS: Project[] = [
     year: "2026",
     summary: "Brand mark, typography standard, and brand presence engineered for 'Unparalleled, Unrivalled' presence across architectural retail.",
     deliverables: ["Visual Identity System", "Brand Typography", "Environmental Design"],
-    image: "/images/social-kulture.jpg"
+    image: "/images/work/altossa-branding.webp"
   },
   {
     id: "p14",

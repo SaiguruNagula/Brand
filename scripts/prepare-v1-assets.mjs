@@ -15,7 +15,7 @@ if (outputRoot.startsWith(sourceRoot + path.sep)) throw new Error('Output must n
 const canvas = await import(pathToFileURL(path.join(toolsArg, '@napi-rs/canvas/index.js')).href);
 const pdfjs = await import(pathToFileURL(path.join(toolsArg, 'pdfjs-dist/legacy/build/pdf.mjs')).href);
 const records = [];
-for (const folder of ['brand', 'work', 'clients']) await fs.mkdir(path.join(outputRoot, folder), { recursive: true });
+for (const folder of ['brand', 'work', 'clients', 'homepage']) await fs.mkdir(path.join(outputRoot, folder), { recursive: true });
 async function save(input, destination, source, { logo = false, brand = false, page } = {}) {
   let pipeline = sharp(input).rotate();
   if (logo) pipeline = pipeline.trim({ threshold: 8 });
@@ -40,6 +40,7 @@ await doc.cleanup();
 for (const [source, destination, options] of [
   ['00_Brand/Copy of Logo4.png','brand/brand-masala-logo.webp',{logo:true,brand:true}],
   ['04_HOMEPAGE_MEDIA/hero4.png','work/detailing-daddy-social.webp',{}],
+  ['04_HOMEPAGE_MEDIA/hero4.png','homepage/hero4.webp',{}],
   ['04_HOMEPAGE_MEDIA/hero2.jpg','work/soho-brochure.webp',{}],
 ]) await save(await fs.readFile(path.join(sourceRoot, source)), destination, source, options);
 
