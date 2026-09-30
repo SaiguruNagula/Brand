@@ -1,18 +1,203 @@
 import React from 'react';
-import { type Project } from '../data/portfolioData';
-import { ProjectCard } from './ProjectCard';
-interface Props { onSelectProject: (project: Project) => void; featuredProjects: Project[]; }
-export const SelectedWork: React.FC<Props> = ({ onSelectProject, featuredProjects }) => (
-  <section id="selected-work" className="bg-white text-[#111111] py-24 sm:py-32 lg:py-40">
-    <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 sm:mb-20 gap-6 border-b border-neutral-200 pb-8">
-        <div><span className="text-xs font-mono tracking-[0.2em] uppercase text-neutral-500 block mb-4">Selected Work</span>
-          <h2 className="text-[36px] sm:text-[48px] lg:text-[54px] font-semibold leading-tight">Ideas made visible.</h2></div>
-        <a href="#portfolio" className="text-sm underline underline-offset-8">Explore the portfolio</a>
+import { Project } from '../data/portfolioData';
+import { ArrowUpRight } from 'lucide-react';
+import { ClientBrandLockup } from './ClientBrandLockup';
+import { DetailingDaddyShowcase } from './DetailingDaddyShowcase';
+
+interface SelectedWorkProps {
+  onSelectProject: (project: Project) => void;
+  featuredProjects: Project[];
+}
+
+export const SelectedWork: React.FC<SelectedWorkProps> = ({
+  onSelectProject,
+  featuredProjects
+}) => {
+  // Select projects dynamically
+  const pDetailingDaddy = featuredProjects.find((p) => p.client === 'DETAILING DADDY') || featuredProjects[0];
+  const pKulture = featuredProjects.find((p) => p.client === 'KULTURE');
+  const pSoho = featuredProjects.find((p) => p.client.includes('SOHO'));
+  const pTurtleWax = featuredProjects.find((p) => p.client === 'TURTLE WAX');
+  const pTata = featuredProjects.find((p) => p.client === 'TATA MOTORS');
+
+  return (
+    <section id="selected-work" className="bg-white text-[#111111] py-28 sm:py-36 lg:py-44">
+      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
+        
+        {/* Editorial Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-24 gap-6 border-b border-neutral-200/80 pb-10">
+          <div>
+            <span className="text-[12px] font-mono tracking-[0.2em] uppercase text-neutral-500 block mb-3">
+              Selected Work
+            </span>
+            <h2 className="text-[36px] sm:text-[46px] lg:text-[54px] font-bold tracking-[-0.035em] text-[#111111] leading-tight">
+              Ideas made visible.
+            </h2>
+          </div>
+          <p className="text-[15px] sm:text-[16px] text-neutral-500 max-w-sm font-normal leading-relaxed">
+            Curated brand systems, campaign storytelling, and digital interfaces crafted for lasting distinction.
+          </p>
+        </div>
+
+        {/* Curated Exhibition Grid */}
+        <div className="space-y-20 sm:space-y-28 lg:space-y-36">
+          
+          {/* Item 01: Hero Lead Feature — DETAILING DADDY */}
+          {pDetailingDaddy && (
+            <div className="flex flex-col space-y-6">
+              <DetailingDaddyShowcase onOpenConsultation={() => onSelectProject(pDetailingDaddy)} />
+
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 pt-2">
+                <div className="space-y-2 max-w-2xl">
+                  {/* Company Logo over Text with Name behind for SEO */}
+                  <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-wider text-neutral-500">
+                    <ClientBrandLockup 
+                      client={pDetailingDaddy.client} 
+                      logoClassName="h-7 sm:h-8"
+                    />
+                    <span>—</span>
+                    <span>{pDetailingDaddy.category}</span>
+                    {pDetailingDaddy.location && (
+                      <>
+                        <span className="hidden sm:inline">·</span>
+                        <span className="hidden sm:inline text-neutral-400 font-mono text-[11px]">{pDetailingDaddy.location}</span>
+                      </>
+                    )}
+                  </div>
+
+                  <h3 
+                    onClick={() => onSelectProject(pDetailingDaddy)}
+                    className="text-[24px] sm:text-[30px] font-semibold tracking-tight text-[#111111] hover:text-neutral-600 transition-colors cursor-pointer"
+                  >
+                    {pDetailingDaddy.title}
+                  </h3>
+                  
+                  {pDetailingDaddy.headline && (
+                    <p className="text-[15px] font-medium text-[#FF6A00]">
+                      "{pDetailingDaddy.headline}"
+                    </p>
+                  )}
+
+                  <p className="text-[15px] text-neutral-500 leading-relaxed pt-0.5">
+                    {pDetailingDaddy.summary}
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => onSelectProject(pDetailingDaddy)}
+                  className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-neutral-500 hover:text-[#111111] transition-colors shrink-0 cursor-pointer"
+                >
+                  <span>View Project Specs</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 hover:translate-x-0.5 hover:-translate-y-0.5" />
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Items 02 & 03: Supporting Visuals — KULTURE & SOHO */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-16 lg:gap-20">
+            
+            {/* Supporting Visual 1: KULTURE */}
+            {pKulture && (
+              <div
+                onClick={() => onSelectProject(pKulture)}
+                className="group cursor-pointer flex flex-col space-y-5"
+              >
+                <div className="relative w-full aspect-[4/3] rounded-[14px] overflow-hidden bg-neutral-100">
+                  <img
+                    src={pKulture.image}
+                    alt={pKulture.title}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  />
+                </div>
+
+                <div className="space-y-1.5 pt-1">
+                  <div className="flex items-center gap-2.5 text-xs font-mono uppercase tracking-wider text-neutral-500">
+                    <ClientBrandLockup client={pKulture.client} />
+                    <span>—</span>
+                    <span>{pKulture.category}</span>
+                  </div>
+                  <h4 className="text-[20px] sm:text-[24px] font-semibold tracking-tight text-[#111111] group-hover:text-neutral-600 transition-colors">
+                    {pKulture.title}
+                  </h4>
+                  <p className="text-[14px] text-neutral-500 leading-relaxed">
+                    {pKulture.summary}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Supporting Visual 2: SOHO */}
+            {pSoho && (
+              <div
+                onClick={() => onSelectProject(pSoho)}
+                className="group cursor-pointer flex flex-col space-y-5"
+              >
+                <div className="relative w-full aspect-[4/3] rounded-[14px] overflow-hidden bg-neutral-100">
+                  <img
+                    src={pSoho.image}
+                    alt={pSoho.title}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  />
+                </div>
+
+                <div className="space-y-1.5 pt-1">
+                  <div className="flex items-center gap-2.5 text-xs font-mono uppercase tracking-wider text-neutral-500">
+                    <ClientBrandLockup client={pSoho.client} />
+                    <span>—</span>
+                    <span>{pSoho.category}</span>
+                  </div>
+                  <h4 className="text-[20px] sm:text-[24px] font-semibold tracking-tight text-[#111111] group-hover:text-neutral-600 transition-colors">
+                    {pSoho.title}
+                  </h4>
+                  <p className="text-[14px] text-neutral-500 leading-relaxed">
+                    {pSoho.summary}
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Item 04: Supporting Visual — TATA MOTORS */}
+          {pTata && (
+            <div
+              onClick={() => onSelectProject(pTata)}
+              className="group cursor-pointer flex flex-col space-y-6"
+            >
+              <div className="relative w-full aspect-[16/10] sm:aspect-[21/10] rounded-[16px] overflow-hidden bg-neutral-100">
+                <img
+                  src={pTata.image}
+                  alt={pTata.title}
+                  className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                />
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 pt-2">
+                <div className="space-y-1 max-w-2xl">
+                  <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-wider text-neutral-500">
+                    <ClientBrandLockup client={pTata.client} />
+                    <span>—</span>
+                    <span>{pTata.category}</span>
+                  </div>
+                  <h3 className="text-[22px] sm:text-[28px] font-semibold tracking-tight text-[#111111] group-hover:text-neutral-600 transition-colors">
+                    {pTata.title}
+                  </h3>
+                  <p className="text-[15px] text-neutral-500 leading-relaxed pt-1">
+                    {pTata.summary}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-neutral-500 group-hover:text-[#111111] transition-colors shrink-0">
+                  <span>View Project</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
+              </div>
+            </div>
+          )}
+
+        </div>
       </div>
-      <div className="grid md:grid-cols-2 gap-x-10 lg:gap-x-16 gap-y-14 sm:gap-y-20">
-        {featuredProjects.map(project => <ProjectCard key={project.id} project={project} onSelect={onSelectProject} />)}
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};

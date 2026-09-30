@@ -1,45 +1,6 @@
 @import "tailwindcss";
 @import "../styles.css";
 
-/* V1 preserves the original editorial palette and motion, without prototype tools. */
-html { scroll-padding-top: 105px; }
-section[id] { scroll-margin-top: 10px; }
-:focus-visible { outline: 2px solid #b88000; outline-offset: 5px; }
-.skip-link { position: fixed; top: -80px; left: 16px; z-index: 100; padding: 12px 20px; background: #ffbb02; color: #000; }
-.skip-link:focus { top: 12px; }
-.v1-navbar { position: fixed; inset: 0 0 auto; z-index: 40; padding: 14px 0; background: #010101ed; backdrop-filter: blur(18px); border-bottom: 1px solid #ffffff10; }
-.v1-navbar .nav-item { font-size: 13px; }
-.v1-desktop-nav, .v1-desktop-contact { display: none; }
-@media (min-width: 1024px) { .v1-navbar .v1-desktop-nav, .v1-navbar .v1-desktop-contact { display: inline-flex; } }
-.brand-logo { display: inline-flex; max-width: 100%; align-items: center; }
-.brand-logo img { display: block; width: 100%; height: auto; }
-.brand-logo--surface { background: #fff; border-radius: 8px; padding: 10px 14px; }
-.brand-logo--xs { width: 110px; }
-.brand-logo--sm { width: 155px; }
-.brand-logo--md { width: 200px; }
-.brand-logo--lg, .brand-logo--hero { width: 330px; }
-.v1-hero { height: auto; min-height: min(900px, 100svh); padding-top: 140px; padding-bottom: 26px; }
-.v1-hero .hero-center { padding: 60px 0 80px; max-width: 1120px; }
-.v1-hero .headline { font-size: clamp(28px, 5.1vw, 72px); white-space: normal; overflow: visible; line-height: 1.2; letter-spacing: -.045em; }
-.v1-hero .subhead { max-width: 540px; margin-top: 28px; }
-.v1-hero .cta-group { margin-top: 36px; }
-.v1-hero-atmosphere { background: radial-gradient(ellipse at 50% 70%, #2d260f55, transparent 65%), #010101; }
-.client-lockup { display: inline-block; max-width: 100%; text-align: center; }
-.client-logo { display: block; width: auto; max-width: min(160px, 100%); height: 48px; object-fit: contain; margin: 0 auto; }
-.project-dialog { padding: 0; border: 1px solid #ffffff26; border-radius: 14px; width: min(1100px, calc(100% - 32px)); max-height: 90dvh; margin: auto; overflow: auto; background: #090909; color: white; }
-.project-dialog::backdrop { background: #000d; backdrop-filter: blur(8px); }
-@media (max-width: 600px) {
-  .v1-hero { min-height: 760px; min-height: 100svh; padding-top: 100px; }
-  .v1-hero .hero-center { padding: 60px 4px; }
-  .v1-hero .headline { font-size: clamp(26px, 6.8vw, 40px); letter-spacing: -.055em; }
-  .client-logo { max-width: min(125px, 100%); height: 40px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto !important; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-  .v1-marquee { animation: none !important; }
-}
-
 @layer base {
   :root {
     --bg-primary: #010101;
