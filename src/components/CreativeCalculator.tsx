@@ -17,7 +17,7 @@ export const CreativeCalculator: React.FC<CreativeCalculatorProps> = ({ onOpenCo
   const teamSize = totalAssetsEstimate < 25 ? '1 Senior Art Director + 1 Specialist' : totalAssetsEstimate < 50 ? '1 Creative Director + 2 Specialists' : 'Full Dedicated Creative Pod (3-4 Specialists)';
 
   return (
-    <section id="pricing" className="py-24 sm:py-32 bg-[#010101] border-t border-white/[0.08] relative">
+    <section id="pricing" className="py-24 sm:py-32 lg:py-36 bg-[#010101] border-t border-white/[0.08] relative">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
@@ -136,7 +136,7 @@ export const CreativeCalculator: React.FC<CreativeCalculatorProps> = ({ onOpenCo
               </div>
 
               {/* Key Specs */}
-              <div className="space-y-3 pt-4 border-t border-neutral-200 text-xs font-mono">
+              <div className="space-y-3 pt-4 border-t border-neutral-200 text-xs lg:text-sm font-mono">
                 <div className="flex items-center justify-between">
                   <span className="text-neutral-600 flex items-center gap-1.5">
                     <Clock className="w-3.5 h-3.5 text-[#D97706]" />

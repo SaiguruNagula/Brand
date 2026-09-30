@@ -1,74 +1,70 @@
-# BRAND MASALA — Asset Replacement & Deployment Guide
+# Brand Masala — V1 asset and local review guide
 
-This guide details how to replace visual assets, update logo files, and deploy the Brand Masala landing website.
+## Current implementation
 
----
+V1 uses the approved sources in CONTENT_MAPPING.md. That document records the original evidence review; the subsequent implementation authorization approves the smaller public V1 described here.
 
-## 1. Logo Replacement Instructions
+- 12 source-backed portfolio entries; one Altossa entry; Borntrue omitted.
+- 12 client-logo assets and one unchanged-artwork Brand Masala logo derivative.
+- Public sections: hero/navigation, client marquee, eight services, selected work, portfolio, About, clients, honest contact placeholder and footer.
+- Project modals show real artwork and source-backed labels; unsupported dates/results/deliverables are absent.
+- Workflow, simulator, calculator, comparison, showreel, fake intake and upload/customization components remain in source but are not imported by the public V1.
+- Brand artwork is never reconstructed or recolored. Light logo surfaces preserve legibility on dark backgrounds.
 
-The application uses an ultra-crisp vector typographic lockup by default (`BrandMasalaLogo.tsx`) which renders the exact Brand Masala logotype:
-* **"brand"** in pure white / dark
-* **"masala"** in brand yellow `#FFBB02`
-* **Accent dot** in brand orange/red `#FC3520`
-* **"A BRAND CONSULTANCY FIRM"** tagline in uppercase tracking
+## Asset provenance and regeneration
 
-### Replacing with an Image or the provided `Logo3.png`:
-1. Save your high-resolution logo image as:
-   ```
-   public/images/logo.png
-   ```
-2. Or use the vector file:
-   ```
-   public/images/brand-masala-logo.svg
-   ```
-3. In `src/components/BrandMasalaLogo.tsx` or `src/components/Navbar.tsx`, you can swap `<BrandMasalaLogo />` with:
-   ```tsx
-   <img src="/images/logo.png" alt="Brand Masala" className="h-8 sm:h-10 w-auto" />
-   ```
+Exact source files, PDF page numbers, output dimensions and byte sizes:
+`scripts/v1-assets-manifest.json`.
 
----
+The generator has a fixed allowlist:
+`scripts/prepare-v1-assets.mjs`.
 
-## 2. Portfolio Image Replacement Instructions
+It reads only the explicitly supplied approved root, exports ten specified PDF pages, converts the two specified homepage artworks, and prepares the approved logos. It writes only to local repository outputs. It does not copy the PDF, MOV, HIF, testimonials, unused images or other Drive folders.
 
-All portfolio imagery is centralized in the `/public/images/` directory. Each file corresponds to authentic work from the Brand Masala Work Portfolio PDF:
+The website's own Sharp dependency is used for WebP processing. PDF tooling is offline build-time tooling, not an application dependency. This run used pdfjs-dist 6.3.289 and @napi-rs/canvas 1.0.9 in a temporary directory. To regenerate, install those exact versions into a separate tools directory and pass its node_modules location:
 
-| Project / Client | File Location | Recommended Dimensions | Notes |
-| :--- | :--- | :--- | :--- |
-| **Kulture Veneers & Surfaces** | `/public/images/social-kulture.jpg` | 1200 × 900 (4:3) | Social & Architectural Print |
-| **SOHO Residences Skyline** | `/public/images/social-soho.jpg` | 1600 × 1000 (16:10) | Luxury Real Estate & Social |
-| **SOHO Residences Platform** | `/public/images/web-soho-residences.jpg` | 1920 × 1080 (16:9) | Website & Brochure Showcase |
-| **Turtle Wax Graphene** | `/public/images/social-turtlewax.jpg` | 1200 × 900 (4:3) | Automotive Detailing & Ads |
-| **Tata Motors Mobility** | `/public/images/social-tatamotors.jpg` | 1200 × 900 (4:3) | Automotive Social Campaign |
-| **SVC Realty Platform** | `/public/images/web-svc-realty.jpg` | 1920 × 1080 (16:9) | Architectural Design Platform |
-| **Founder Portrait** | `/public/images/founder-kamaljeet.jpg` | 800 × 1000 (4:5) | Kamaljeet Singh (Page 30 of PDF) |
-
-To replace any project image with a new export from Figma or the original master PDF:
-1. Export the image as a high-quality JPG or WebP.
-2. Drop it into `public/images/` with the exact corresponding filename listed above.
-3. The site immediately reflects the change without editing code.
-
-To add new projects or modify metadata, edit:
-```
-src/data/portfolioData.ts
+```powershell
+node scripts/prepare-v1-assets.mjs "<WEBSITE_V1_APPROVED path>" "<temporary tools path>/node_modules"
 ```
 
----
+Review the output visually after regeneration. Full PDF pages preserve attribution and composition; cards use object-contain, and the modal provides a full-size artwork link. Client contacts embedded in artwork belong to the client, not Brand Masala.
 
-## 3. Brand Color Palette Reference
+Never add unsourced facts merely to populate optional project fields. Update `src/data/portfolioData.ts` only from approved material. New media also requires a manifest entry: the production build intentionally ships only the allowlisted media and local display font. Legacy prototype assets remain in the repository but are excluded from dist.
 
-* **Black (Dominant 90%)**: `#010101`
-* **Yellow (Controlled Accent)**: `#FFBB02`
-* **Orange / Red (Controlled Accent)**: `#FC3520`
-* **White (Primary Contrast)**: `#FFFFFF`
-* **Neutrals**: `#070707`, `#0e0e0e`, `#A1A1AA`, `#71717A`
+## Local review
 
----
+```powershell
+npm run dev
+```
 
-## 4. Build & Production Deployment
+Open the URL printed by Vite (normally http://localhost:3000).
 
-To test a production build:
-```bash
+```powershell
 npm run build
+npm run lint
+npm run preview
 ```
 
-The compiled assets will be in `/dist`. You can deploy this static build to Cloud Run, Vercel, Netlify, AWS S3 / CloudFront, or any standard web server.
+The configured lint script is TypeScript's `tsc --noEmit`, not ESLint. No project dependencies were added or upgraded for this implementation.
+
+Optional repeatable browser checks use a temporary Playwright installation (this run: 1.63.0) and locally installed Microsoft Edge:
+
+```powershell
+node scripts/check-v1.mjs "<temporary browser tools path>/node_modules" "<temporary screenshot output path>" "http://127.0.0.1:4173"
+```
+
+Start the production preview first. The checks cover 1440, 1280, 1024, 768, 430 and 390 pixel widths, anchors, mobile navigation, portfolio filters, all service buttons, modal Escape/focus restoration, reduced motion, public claim/form checks, asset responses and browser errors. Screenshots are generated outside the repository.
+
+## Deployment boundary
+
+The website is a static Vite build: the contents of `dist` are the deployment artifact. Do not upload source, node_modules, environment files or the Drive PDF. The current absolute asset paths assume deployment at the domain root; a subdirectory deployment needs a separate base-path review.
+
+No deployment or merge to main has been performed. Review the local site before publishing.
+
+## Outstanding launch items
+
+- Verified agency email/phone/WhatsApp/social profile URLs are still missing. The contact section honestly says online enquiries are unavailable; there is no form or submission-success state.
+- The production domain is not supplied. No canonical URL, contact schema, ratings, address or legal entity was invented.
+- Favicon uses the same approved logo WebP, without a new/reconstructed mark. A dedicated approved square icon and social share image can be supplied later.
+- Existing Google Fonts remain external, with system fallbacks. The distinctive pixel display font is local; unused OnlineWebFonts and Font Awesome CDN requests were removed.
+- LAUNCH_AUDIT.md and LAUNCH_CHECKLIST.md were not available in this workspace. Their separate requirements have not been certified by this implementation.

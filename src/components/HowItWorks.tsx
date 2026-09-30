@@ -19,7 +19,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenConsultation }) =>
   ];
 
   return (
-    <section id="how-it-works" className="py-24 sm:py-32 bg-[#010101] border-t border-white/[0.08] relative">
+    <section id="how-it-works" className="py-24 sm:py-32 lg:py-36 bg-[#010101] border-t border-white/[0.08] relative">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
@@ -36,7 +36,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenConsultation }) =>
         </div>
 
         {/* 3 Step Process Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 sm:mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 mb-16 sm:mb-20">
           {/* Step 1 */}
           <div className="p-8 bg-[#0c0c0c] border border-white/[0.08] relative group hover:border-[#FFBB02]/50 transition-all duration-300 flex flex-col justify-between">
             <div>
@@ -46,10 +46,10 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenConsultation }) =>
                 </span>
                 <span className="text-xs font-mono text-neutral-400">10 MIN SETUP</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-tight mb-3">
+              <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-white uppercase tracking-tight mb-3">
                 Drop Your Creative Brief
               </h3>
-              <p className="text-sm text-neutral-400 leading-relaxed font-normal">
+              <p className="text-sm lg:text-base text-neutral-400 leading-relaxed font-normal">
                 Submit requests through our streamlined portal, Slack channel, or direct partner email. Upload assets, reference links, and goals in seconds.
               </p>
             </div>
@@ -68,10 +68,10 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenConsultation }) =>
                 </span>
                 <span className="text-xs font-mono text-neutral-600 font-semibold">DEDICATED TALENT</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-950 uppercase tracking-tight mb-3">
+              <h3 className="text-xl sm:text-2xl lg:text-[26px] font-extrabold text-neutral-950 uppercase tracking-tight mb-3">
                 Specialist Production Begins
               </h3>
-              <p className="text-sm text-neutral-600 leading-relaxed font-normal">
+              <p className="text-sm lg:text-base text-neutral-600 leading-relaxed font-normal">
                 Your dedicated creative director and specialized designers get to work immediately. Every asset is built precisely to your brand guidelines.
               </p>
             </div>
@@ -90,10 +90,10 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenConsultation }) =>
                 </span>
                 <span className="text-xs font-mono text-neutral-400">24-48H TURNAROUND</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-tight mb-3">
+              <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-white uppercase tracking-tight mb-3">
                 Review, Revise &amp; Launch
               </h3>
-              <p className="text-sm text-neutral-400 leading-relaxed font-normal">
+              <p className="text-sm lg:text-base text-neutral-400 leading-relaxed font-normal">
                 Receive organized, production-ready deliverables. Need an adjustment? Revisions are rapid and unlimited until you are completely satisfied.
               </p>
             </div>

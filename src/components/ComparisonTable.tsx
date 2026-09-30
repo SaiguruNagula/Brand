@@ -59,7 +59,7 @@ export const ComparisonTable: React.FC<ComparisonTableProps> = ({ onOpenConsulta
   ];
 
   return (
-    <section id="comparison" className="py-24 sm:py-32 bg-[#F6F7F9] text-neutral-900 border-y border-neutral-300/80 relative">
+    <section id="comparison" className="py-24 sm:py-32 lg:py-36 bg-[#F6F7F9] text-neutral-900 border-y border-neutral-300/80 relative">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
@@ -103,7 +103,7 @@ export const ComparisonTable: React.FC<ComparisonTableProps> = ({ onOpenConsulta
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-neutral-200 text-xs sm:text-sm font-medium">
+            <tbody className="divide-y divide-neutral-200 text-xs sm:text-sm lg:text-[15px] font-medium">
               {comparisonRows.map((row, idx) => (
                 <tr key={idx} className="hover:bg-neutral-50/80 transition-colors">
                   <td className="p-6 text-neutral-900 font-semibold font-mono text-xs uppercase tracking-wider">

@@ -1,7 +1,7 @@
 import React from 'react';
 import { CLIENTS_LIST } from '../data/portfolioData';
 import { BrandMasalaLogo } from './BrandMasalaLogo';
-import { ClientBrandLockup } from './ClientBrandLockup';
+import { clientLogoSrc } from './ClientBrandLockup';
 import { DetailingDaddyLogo } from './DetailingDaddyLogo';
 import { Sparkles } from 'lucide-react';
 
@@ -56,7 +56,7 @@ export const LogoMarquee: React.FC = () => {
             aria-label="Brand Masala — Home"
             title="Brand Masala"
           >
-            <BrandMasalaLogo variant="black" size="md" layout="horizontal" showTagline={true} />
+            <BrandMasalaLogo variant="black" size="md" layout="horizontal" showTagline={true} useImage={true} />
           </a>
 
           <div className="hidden sm:flex items-center gap-2 pl-4 border-l border-[#E5D5B3]">
@@ -157,9 +157,7 @@ export const LogoMarquee: React.FC = () => {
                       </div>
                     ) : (
                       <div className="text-center flex flex-col items-center justify-center min-h-[36px]">
-                        <span className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-[#1A1816] group-hover:text-black transition-colors">
-                          {client.name}
-                        </span>
+                        {clientLogoSrc(client.name) ? <img src={clientLogoSrc(client.name)} alt={client.name} className="max-w-[140px] max-h-[28px] object-contain" /> : <span className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-[#1A1816] group-hover:text-black transition-colors">{client.name}</span>}
                         <span className="block text-[9.5px] font-mono font-medium text-[#7C7262] group-hover:text-[#B45309] transition-colors mt-0.5">
                           {client.category}
                         </span>
@@ -187,9 +185,7 @@ export const LogoMarquee: React.FC = () => {
                   </div>
                 ) : (
                   <div className="text-center flex flex-col items-center justify-center min-h-[36px]">
-                    <span className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-[#1A1816] group-hover:text-black transition-colors">
-                      {client.name}
-                    </span>
+                    {clientLogoSrc(client.name) ? <img src={clientLogoSrc(client.name)} alt={client.name} className="max-w-[140px] max-h-[28px] object-contain" /> : <span className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-[#1A1816] group-hover:text-black transition-colors">{client.name}</span>}
                     <span className="block text-[9.5px] font-mono font-medium text-[#7C7262] group-hover:text-[#B45309] transition-colors mt-0.5">
                       {client.category}
                     </span>
@@ -244,9 +240,7 @@ export const LogoMarquee: React.FC = () => {
                       </div>
                     ) : (
                       <div className="text-center flex flex-col items-center justify-center min-h-[36px]">
-                        <span className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-[#1A1816] group-hover:text-black transition-colors">
-                          {client.name}
-                        </span>
+                        {clientLogoSrc(client.name) ? <img src={clientLogoSrc(client.name)} alt={client.name} className="max-w-[140px] max-h-[28px] object-contain" /> : <span className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-[#1A1816] group-hover:text-black transition-colors">{client.name}</span>}
                         <span className="block text-[9.5px] font-mono font-medium text-[#7C7262] group-hover:text-[#B45309] transition-colors mt-0.5">
                           {client.category}
                         </span>
@@ -274,9 +268,7 @@ export const LogoMarquee: React.FC = () => {
                   </div>
                 ) : (
                   <div className="text-center flex flex-col items-center justify-center min-h-[36px]">
-                    <span className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-[#1A1816] group-hover:text-black transition-colors">
-                      {client.name}
-                    </span>
+                    {clientLogoSrc(client.name) ? <img src={clientLogoSrc(client.name)} alt={client.name} className="max-w-[140px] max-h-[28px] object-contain" /> : <span className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-[#1A1816] group-hover:text-black transition-colors">{client.name}</span>}
                     <span className="block text-[9.5px] font-mono font-medium text-[#7C7262] group-hover:text-[#B45309] transition-colors mt-0.5">
                       {client.category}
                     </span>

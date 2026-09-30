@@ -57,7 +57,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         {/* Top Bar inside Modal: Client Logo over Text with Name behind for SEO */}
         <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 bg-[#090909]/95 backdrop-blur-md border-b border-white/[0.08]">
           <div className="flex items-center gap-3 text-xs font-mono tracking-widest text-[#FFBB02] uppercase">
-            <ClientBrandLockup client={project.client} logoClassName="h-7 sm:h-8" />
+            <ClientBrandLockup client={project.client} logoClassName="h-7 sm:h-8" theme="dark" />
             <span className="text-neutral-600">·</span>
             <span className="text-neutral-400">{project.category}</span>
             <span className="text-neutral-600">·</span>
@@ -85,7 +85,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   src={activeImage}
                   alt={project.title}
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover transition-opacity duration-300"
+                  className={`w-full h-full ${activeImage.startsWith('/images/work/') ? 'object-contain' : 'object-cover'} transition-opacity duration-300`}
                 />
 
                 {/* Floating Counter when multi-image */}
@@ -99,7 +99,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               {/* Thumbnail Strip if multi-image */}
               {images.length > 1 && (
                 <div className="flex items-center gap-3 overflow-x-auto pb-1">
-                  {images.map((img, idx) => (
+                  {images.map((img: string, idx: number) => (
                     <button
                       key={img + idx}
                       onClick={() => setActiveImageIndex(idx)}
@@ -147,7 +147,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   Scope &amp; Deliverables
                 </div>
                 <div className="flex flex-wrap gap-1.5">
-                  {project.deliverables.map((item) => (
+                  {project.deliverables.map((item: string) => (
                     <span
                       key={item}
                       className="text-xs font-mono px-2.5 py-1 bg-black border border-white/10 text-neutral-200"

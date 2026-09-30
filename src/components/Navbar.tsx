@@ -58,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-7 text-xs font-mono tracking-wider uppercase text-neutral-300">
-          {navLinks.map((link) => (
+          {navLinks.map((link: { label: string; href: string }) => (
             <a
               key={link.label}
               href={link.href}
@@ -94,7 +94,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#090909] border-b border-white/[0.08] px-6 py-6 space-y-4">
           <nav className="flex flex-col space-y-3 text-sm font-mono tracking-wider uppercase">
-            {navLinks.map((link) => (
+            {navLinks.map((link: { label: string; href: string }) => (
               <a
                 key={link.label}
                 href={link.href}

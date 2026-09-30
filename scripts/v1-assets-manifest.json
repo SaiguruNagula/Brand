@@ -1,0 +1,192 @@
+[
+  {
+    "source": "00_Brand/Copy of Brand Masala Work Portfolio .pdf",
+    "page": 5,
+    "output": "public/images/work/kulture-social.webp",
+    "width": 2000,
+    "height": 1125,
+    "bytes": 115532
+  },
+  {
+    "source": "00_Brand/Copy of Brand Masala Work Portfolio .pdf",
+    "page": 12,
+    "output": "public/images/work/soho-social.webp",
+    "width": 2000,
+    "height": 1125,
+    "bytes": 104378
+  },
+  {
+    "source": "00_Brand/Copy of Brand Masala Work Portfolio .pdf",
+    "page": 17,
+    "output": "public/images/work/turtlewax-social.webp",
+    "width": 2000,
+    "height": 1125,
+    "bytes": 143090
+  },
+  {
+    "source": "00_Brand/Copy of Brand Masala Work Portfolio .pdf",
+    "page": 13,
+    "output": "public/images/work/tata-motors-social.webp",
+    "width": 2000,
+    "height": 1125,
+    "bytes": 168302
+  },
+  {
+    "source": "00_Brand/Copy of Brand Masala Work Portfolio .pdf",
+    "page": 8,
+    "output": "public/images/work/rawpchic-social.webp",
+    "width": 2000,
+    "height": 1125,
+    "bytes": 119410
+  },
+  {
+    "source": "00_Brand/Copy of Brand Masala Work Portfolio .pdf",
+    "page": 21,
+    "output": "public/images/work/kulture-print.webp",
+    "width": 2000,
+    "height": 1125,
+    "bytes": 152926
+  },
+  {
+    "source": "00_Brand/Copy of Brand Masala Work Portfolio .pdf",
+    "page": 23,
+    "output": "public/images/work/jains-newspaper-ad.webp",
+    "width": 2000,
+    "height": 1125,
+    "bytes": 245198
+  },
+  {
+    "source": "00_Brand/Copy of Brand Masala Work Portfolio .pdf",
+    "page": 25,
+    "output": "public/images/work/altossa-branding.webp",
+    "width": 2000,
+    "height": 1125,
+    "bytes": 168858
+  },
+  {
+    "source": "00_Brand/Copy of Brand Masala Work Portfolio .pdf",
+    "page": 27,
+    "output": "public/images/work/svc-realty-website.webp",
+    "width": 2000,
+    "height": 1125,
+    "bytes": 204804
+  },
+  {
+    "source": "00_Brand/Copy of Brand Masala Work Portfolio .pdf",
+    "page": 28,
+    "output": "public/images/work/soho-residences-website.webp",
+    "width": 2000,
+    "height": 1125,
+    "bytes": 214670
+  },
+  {
+    "source": "00_Brand/Copy of Logo4.png",
+    "output": "public/images/brand/brand-masala-logo.webp",
+    "width": 816,
+    "height": 158,
+    "bytes": 78890
+  },
+  {
+    "source": "04_HOMEPAGE_MEDIA/hero4.png",
+    "output": "public/images/work/detailing-daddy-social.webp",
+    "width": 1080,
+    "height": 1350,
+    "bytes": 180164
+  },
+  {
+    "source": "04_HOMEPAGE_MEDIA/hero4.png",
+    "output": "public/images/homepage/hero4.webp",
+    "width": 1080,
+    "height": 1350,
+    "bytes": 180164
+  },
+  {
+    "source": "04_HOMEPAGE_MEDIA/hero2.jpg",
+    "output": "public/images/work/soho-brochure.webp",
+    "width": 1080,
+    "height": 1350,
+    "bytes": 161980
+  },
+  {
+    "source": "02_CLIENT_LOGOS/Detailing daddy logo.png",
+    "output": "public/images/clients/detailing-daddy.webp",
+    "width": 600,
+    "height": 162,
+    "bytes": 47748
+  },
+  {
+    "source": "02_CLIENT_LOGOS/Furnestry logo.png",
+    "output": "public/images/clients/furnestry.webp",
+    "width": 333,
+    "height": 254,
+    "bytes": 20718
+  },
+  {
+    "source": "02_CLIENT_LOGOS/Copy of logo black.png",
+    "output": "public/images/clients/kulture.webp",
+    "width": 600,
+    "height": 305,
+    "bytes": 20714
+  },
+  {
+    "source": "02_CLIENT_LOGOS/M.Bhagwanlal and Co. logo.png",
+    "output": "public/images/clients/m-bhagwanlal.webp",
+    "width": 315,
+    "height": 86,
+    "bytes": 14684
+  },
+  {
+    "source": "02_CLIENT_LOGOS/oppeinhome-com-logo.png",
+    "output": "public/images/clients/oppein.webp",
+    "width": 247,
+    "height": 59,
+    "bytes": 8024
+  },
+  {
+    "source": "02_CLIENT_LOGOS/atherenergy-com-logo.png",
+    "output": "public/images/clients/ather.webp",
+    "width": 256,
+    "height": 246,
+    "bytes": 4418
+  },
+  {
+    "source": "02_CLIENT_LOGOS/Copy of Rawpchic logo.jpg",
+    "output": "public/images/clients/rawpchic.webp",
+    "width": 503,
+    "height": 153,
+    "bytes": 58724
+  },
+  {
+    "source": "02_CLIENT_LOGOS/SOHO residence logo.png",
+    "output": "public/images/clients/soho.webp",
+    "width": 164,
+    "height": 61,
+    "bytes": 3500
+  },
+  {
+    "source": "02_CLIENT_LOGOS/turtlewax-logo.png",
+    "output": "public/images/clients/turtlewax.webp",
+    "width": 255,
+    "height": 181,
+    "bytes": 41782
+  },
+  {
+    "source": "02_CLIENT_LOGOS/Zenthink logo.png",
+    "output": "public/images/clients/zenthink.webp",
+    "width": 200,
+    "height": 79,
+    "bytes": 5208
+  },
+  {
+    "source": "02_CLIENT_LOGOS/tatamotors-co-id-logo.png",
+    "output": "public/images/clients/tata-motors.webp",
+    "width": 247,
+    "height": 209,
+    "bytes": 36348
+  },
+  {
+    "source": "02_CLIENT_LOGOS/mercedes-benz-com-logo.svg",
+    "output": "public/images/clients/mercedes-benz.svg",
+    "bytes": 314724
+  }
+]

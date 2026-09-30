@@ -31,7 +31,7 @@ export const ServiceExplorer: React.FC<ServiceExplorerProps> = ({ onOpenConsulta
       description: 'Daily feeds, high-converting carousels, campaign key visuals, and short-form motion engineered for algorithms and human attention alike.',
       turnaround: '24–48h',
       deliverables: ['Editorial Feed Architecture', 'Instagram & LinkedIn Carousels', 'Motion Video & Reels', 'Brand Guidelines Ad Stills', 'Paid Media Visuals'],
-      image: '/images/social-kulture.jpg',
+      image: '/images/work/kulture-social.webp',
       featuredWork: 'Kulture Tactile Veneers Campaign',
       client: 'KULTURE',
       badge: 'High Velocity'
@@ -57,7 +57,7 @@ export const ServiceExplorer: React.FC<ServiceExplorerProps> = ({ onOpenConsulta
       description: 'Modern, responsive web applications and landing destinations built on performant front-ends with fluid UX, micro-interactions, and flawless typography.',
       turnaround: '3–7 Days',
       deliverables: ['Bespoke Web Pages', 'Interactive Portfolios', 'Figma Design Architecture', 'Design System Components', 'SEO Metadata & Microdata'],
-      image: '/images/web-svc-realty.jpg',
+      image: '/images/work/svc-realty-website.webp',
       featuredWork: 'SVC Realty Construction Platform',
       client: 'SVC REALTY',
       badge: 'Interactive UI'
@@ -70,7 +70,7 @@ export const ServiceExplorer: React.FC<ServiceExplorerProps> = ({ onOpenConsulta
       description: 'High-intent visual assets paired with multi-variant testing hooks, clear benefit callouts, and laser-targeted product framing.',
       turnaround: '24–48h',
       deliverables: ['Performance Display Banners', 'Retargeting Ad Creative Suite', 'Lead Generation Creatives', 'A/B Test Variations', 'Headline & Hook Testing'],
-      image: '/images/social-turtlewax.jpg',
+      image: '/images/work/turtlewax-social.webp',
       featuredWork: 'Turtle Wax Graphene Protection',
       client: 'TURTLE WAX',
       badge: 'ROI Focused'
@@ -83,7 +83,7 @@ export const ServiceExplorer: React.FC<ServiceExplorerProps> = ({ onOpenConsulta
       description: 'High-touch tactile print executions, embossed luxury monographs, newspaper broadsheets, and large-format outdoor architectural presences.',
       turnaround: '48–72h',
       deliverables: ['Hardbound Editorial Brochures', 'Front-Page Broadsheets', 'Architectural Facade Signage', 'Corporate Stationery Suites', 'Foil & Emboss Tooling'],
-      image: '/images/social-soho.jpg',
+      image: '/images/work/soho-brochure.webp',
       featuredWork: 'SOHO Jubilee Hills Monograph',
       client: 'SOHO LIVING',
       badge: 'Tactile Craft'
@@ -94,7 +94,7 @@ export const ServiceExplorer: React.FC<ServiceExplorerProps> = ({ onOpenConsulta
   const IconComponent = activeTab.icon;
 
   return (
-    <section id="services" className="py-24 sm:py-32 bg-[#030304] border-t border-white/[0.08] relative overflow-hidden">
+    <section id="services" className="py-24 sm:py-32 lg:py-36 bg-[#030304] border-t border-white/[0.08] relative overflow-hidden">
       {/* Subtle Apple-style duo atmospheric glow (Titanium Azure + Soft Saffron) */}
       <div 
         className="absolute top-1/4 -right-24 w-[500px] h-[500px] bg-[#3B82F6]/[0.035] rounded-full blur-[140px] pointer-events-none" 
@@ -117,12 +117,12 @@ export const ServiceExplorer: React.FC<ServiceExplorerProps> = ({ onOpenConsulta
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl lg:text-[54px] font-semibold tracking-[-0.03em] text-white leading-[1.08]">
+            <h2 className="text-3xl sm:text-5xl lg:text-[60px] font-semibold tracking-[-0.03em] text-white leading-[1.08]">
               Crafted for brands that demand perfection<span className="text-[#3B82F6]">.</span>
             </h2>
           </div>
 
-          <p className="text-sm sm:text-base text-neutral-400 font-normal max-w-md leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-lg text-neutral-400 font-normal max-w-md leading-relaxed">
             One dedicated brand consultancy. Full-spectrum creative execution across social feeds, print collateral, and responsive web platforms.
           </p>
         </div>
@@ -168,12 +168,12 @@ export const ServiceExplorer: React.FC<ServiceExplorerProps> = ({ onOpenConsulta
               </div>
 
               {/* Headline */}
-              <h3 className="text-2xl sm:text-3xl font-semibold text-white tracking-[-0.02em] leading-snug">
+              <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-semibold text-white tracking-[-0.02em] leading-snug">
                 {activeTab.headline}
               </h3>
 
               {/* Description */}
-              <p className="text-sm sm:text-base text-neutral-400 font-normal leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-[17px] text-neutral-400 font-normal leading-relaxed">
                 {activeTab.description}
               </p>
 
@@ -184,7 +184,7 @@ export const ServiceExplorer: React.FC<ServiceExplorerProps> = ({ onOpenConsulta
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {activeTab.deliverables.map((item) => (
-                    <div key={item} className="flex items-center gap-2.5 text-xs sm:text-sm text-neutral-300">
+                    <div key={item} className="flex items-center gap-2.5 text-xs sm:text-sm lg:text-[15px] text-neutral-300">
                       <div className="w-4 h-4 rounded-full bg-[#3B82F6]/15 flex items-center justify-center shrink-0">
                         <Check className="w-2.5 h-2.5 text-[#60A5FA]" />
                       </div>

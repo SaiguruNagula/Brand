@@ -8,8 +8,8 @@ interface AboutProps {
 
 export const About: React.FC<AboutProps> = ({ onOpenContact }) => {
   return (
-    <section id="about" className="bg-white text-[#111111] py-28 sm:py-36 lg:py-44 border-t border-neutral-100">
-      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
+    <section id="about" className="bg-transparent text-[#111111] py-28 sm:py-36 lg:py-44 2xl:py-52 border-t border-neutral-100">
+      <div className="max-w-[1680px] mx-auto px-6 sm:px-10 lg:px-16">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
@@ -30,11 +30,11 @@ export const About: React.FC<AboutProps> = ({ onOpenContact }) => {
 
           {/* Right Column: Concise, Confident Editorial Statement */}
           <div className="lg:col-span-7 space-y-8">
-            <p className="text-[20px] sm:text-[24px] lg:text-[26px] font-normal tracking-tight text-[#111111] leading-[1.4]">
+            <p className="text-[20px] sm:text-[24px] lg:text-[28px] 2xl:text-[34px] font-normal tracking-tight text-[#111111] leading-[1.4]">
               We create bold, strategic and result-oriented marketing solutions that help businesses stand out in a competitive world.
             </p>
 
-            <p className="text-[16px] sm:text-[17px] text-neutral-500 font-normal leading-[1.7] max-w-2xl">
+            <p className="text-[16px] sm:text-[17px] lg:text-[18px] 2xl:text-[20px] text-neutral-500 font-normal leading-[1.7] max-w-2xl 2xl:max-w-3xl">
               From social media and content to branding and digital experiences, we bring strategy and creative execution together under one roof.
             </p>
 

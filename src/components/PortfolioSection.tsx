@@ -28,8 +28,8 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onSelectProj
   }, [activeCategory]);
 
   return (
-    <section id="portfolio" className="bg-white text-[#111111] py-28 sm:py-36 lg:py-44">
-      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
+    <section id="portfolio" className="bg-transparent text-[#111111] py-28 sm:py-36 lg:py-44 2xl:py-48">
+      <div className="max-w-[1680px] mx-auto px-6 sm:px-10 lg:px-16">
         
         {/* Section Header with Category Tabs */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 sm:mb-24 pb-8 border-b border-neutral-200/80">
@@ -37,7 +37,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onSelectProj
             <span className="text-[12px] font-mono tracking-[0.2em] uppercase text-neutral-500 block mb-3">
               PORTFOLIO
             </span>
-            <h2 className="text-[34px] sm:text-[46px] lg:text-[52px] font-bold tracking-[-0.035em] text-[#111111] leading-tight">
+            <h2 className="text-[34px] sm:text-[46px] lg:text-[58px] 2xl:text-[70px] font-bold tracking-[-0.035em] text-[#111111] leading-tight">
               FROM FEED TO FULL EXPERIENCE.
             </h2>
           </div>
@@ -79,19 +79,19 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onSelectProj
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  className={`w-full h-full ${project.image.startsWith('/images/work/') ? 'object-contain' : 'object-cover'} transition-transform duration-700 ease-out group-hover:scale-[1.02]`}
                 />
               </div>
 
               {/* Minimal Metadata */}
               <div className="flex items-baseline justify-between pt-1">
                 <div>
-                  <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1">
+                  <div className="flex items-center gap-2 text-[11px] lg:text-[12px] font-mono uppercase tracking-wider text-neutral-400 mb-1">
                     <ClientBrandLockup client={project.client} logoClassName="h-5 sm:h-6" />
                     <span>•</span>
                     <span>{project.category}</span>
                   </div>
-                  <h3 className="text-[18px] sm:text-[20px] font-semibold text-[#111111] group-hover:text-neutral-600 transition-colors">
+                  <h3 className="text-[18px] sm:text-[20px] lg:text-[24px] font-semibold text-[#111111] group-hover:text-neutral-600 transition-colors">
                     {project.title}
                   </h3>
                 </div>

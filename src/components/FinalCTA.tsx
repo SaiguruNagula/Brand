@@ -7,18 +7,18 @@ interface FinalCTAProps {
 
 export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenContactModal }) => {
   return (
-    <section id="contact" className="bg-[#010101] text-white py-32 sm:py-44 lg:py-52">
-      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
+    <section id="contact" className="bg-[#010101] text-white py-32 sm:py-44 lg:py-52 2xl:py-60">
+      <div className="max-w-[1680px] mx-auto px-6 sm:px-10 lg:px-16">
         
-        <div className="max-w-3xl space-y-8">
+        <div className="max-w-3xl lg:max-w-5xl 2xl:max-w-6xl space-y-8">
           
           {/* Small Label */}
           <span className="text-[12px] font-mono tracking-[0.2em] uppercase text-neutral-500 block">
             HAVE SOMETHING IN MIND?
           </span>
 
-          {/* Heading (Max 64px Desktop, NOT 100px+) */}
-          <h2 className="text-[38px] sm:text-[50px] md:text-[58px] lg:text-[64px] font-bold tracking-[-0.035em] text-white leading-[0.98]">
+          {/* Responsive editorial heading */}
+          <h2 className="text-[38px] sm:text-[50px] md:text-[58px] lg:text-[64px] 2xl:text-[80px] font-bold tracking-[-0.035em] text-white leading-[0.98]">
             LET'S MAKE<br />
             SOMETHING MEMORABLE.
           </h2>

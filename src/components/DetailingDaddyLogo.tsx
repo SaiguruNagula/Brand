@@ -14,6 +14,10 @@ export const DetailingDaddyLogo: React.FC<DetailingDaddyLogoProps> = ({
   const isDark = theme === 'dark';
   const textColor = isDark ? '#FFFFFF' : '#000000';
 
+  if (!isDark) {
+    return <img src="/images/clients/detailing-daddy.webp" alt="Detailing Daddy" className={`h-full w-auto max-w-[210px] object-contain select-none ${className}`} />;
+  }
+
   return (
     <svg 
       viewBox="0 0 620 180" 
